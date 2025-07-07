@@ -1,0 +1,3 @@
+[submodule "weatherflow-dashboards-aio"]
+	path = weatherflow-dashboards-aio
+	url = https://github.com/maxo99/weatherflow-dashboards-aio.git
