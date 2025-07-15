@@ -9,7 +9,7 @@ dependencies = ["ipykernel>=6.24.0"]
 
 [tool.semantic_release]
 version_toml = ["pyproject.toml:project.version"]
-version_variables = ["version"]
+version_variables = ["version:version"]
 branch = "main"
 tag_format = "{version}"
 allow_zero_version = true
