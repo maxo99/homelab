@@ -1,6 +1,6 @@
 [project]
 name = "homelab"
-version = "0.0.0"
+version = "0.1.0"
 description = "Project for managing homelab stack"
 readme = "README.md"
 requires-python = ">=3.11"
