@@ -1,20 +1,19 @@
 
 services:
-  wxfdashboardsaio_grafana:
-    container_name: wxfdashboardsaio_grafana
+  maxo99-grafana:
+    container_name: maxo99-grafana
     environment:
       TZ: ${TZ}
-    image: maxo99/weatherflow-grafana:latest
+    image: maxo99/grafana:latest
     ports:
     - protocol: tcp
       published: 3000
       target: 3000
     restart: always
     volumes:
-    - wxfdashboardsaio-grafana-data:/var/lib/grafana
-    # - ./logs:/var/log/grafana
-  wxfdashboardsaio_influxdb:
-    container_name: wxfdashboardsaio_influxdb
+    - maxo99-grafana-data:/var/lib/grafana
+  maxo99-influxdb:
+    container_name: maxo99-influxdb
     environment:
       TZ: ${TZ}
       INFLUXDB_ADMIN_USER: admin
@@ -36,11 +35,13 @@ services:
       target: 8086
     restart: always
     volumes:
-    - wxfdashboardsaio-influxdb-data:/var/lib/influxdb:rw
-  wxfdashboardsaio-collector:
-    container_name: maxo99-weatherflow-collector-ef948828
+    - maxo99-influxdb-data:/var/lib/influxdb:rw
+  maxo99-weatherflow-collector:
+    container_name: maxo99-weatherflow-collector
     environment:
-      TZ: America/New_York
+      TZ: ${TZ}
+      WEATHERFLOW_COLLECTOR_HOST_HOSTNAME: maxo99-weatherflow-collector
+      WEATHERFLOW_COLLECTOR_LOGGER_FILE_ENABLED: "true"
       WEATHERFLOW_COLLECTOR_DEBUG: "true"
       WEATHERFLOW_COLLECTOR_DEBUG_CURL: "true"
       WEATHERFLOW_COLLECTOR_DISABLE_HEALTH_CHECK: "false"
@@ -50,26 +51,25 @@ services:
       WEATHERFLOW_COLLECTOR_DISABLE_REMOTE_REST: "true"
       WEATHERFLOW_COLLECTOR_DISABLE_REMOTE_SOCKET: "false"
       WEATHERFLOW_COLLECTOR_HEALTHCHECK: "true"
-      WEATHERFLOW_COLLECTOR_HOST_HOSTNAME: wxfdashboardsaio_collector
+      WEATHERFLOW_COLLECTOR_VINEYARD_VANTAGE_HANDLER_ENABLED: "false"
       # Environment variables for InfluxDB connection
       WEATHERFLOW_COLLECTOR_INFLUXDB_PASSWORD: ${INFLUXDB_ADMIN_PASSWORD}
-      WEATHERFLOW_COLLECTOR_INFLUXDB_URL: http://wxfdashboardsaio_influxdb:8086
+      WEATHERFLOW_COLLECTOR_INFLUXDB_URL: http://maxo99-influxdb:8086
       WEATHERFLOW_COLLECTOR_INFLUXDB_USERNAME: weatherflow
       WEATHERFLOW_COLLECTOR_INFLUXDB_DATABASE: ${INFLUXDB_DB_NAME}
       WEATHERFLOW_COLLECTOR_API_TOKEN: ${WEATHERFLOW_COLLECTOR_TOKEN}
       WEATHERFLOW_COLLECTOR_INFLUXDB_ORG: 1
       WEATHERFLOW_COLLECTOR_INFLUXDB_BUCKET: weatherflow
       WEATHERFLOW_COLLECTOR_INFLUXDB_TOKEN: ${INFLUXDB_ADMIN_PASSWORD}
-      WEATHERFLOW_COLLECTOR_LOGGER_FILE_ENABLED: "true"
       WEATHERFLOW_COLLECTOR_EXPORT_COLLECTOR_STALE_SEGMENT_DAYS: 1
     restart: always
     depends_on:
-      - "wxfdashboardsaio_influxdb"
+      - "maxo99-influxdb"
     image: maxo99/weatherflow-collector:latest
     ports:
     - protocol: udp
       published: 50222
       target: 50222
 volumes:
-  wxfdashboardsaio-grafana-data:   
-  wxfdashboardsaio-influxdb-data: 
+  maxo99-grafana-data:   
+  maxo99-influxdb-data: 
