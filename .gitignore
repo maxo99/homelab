@@ -1,1 +1,4 @@
 **/.env
+weatherflow-collector/grafana/dashboards/*
+weatherflow-collector/grafana/provisioning/*
+weatherflow-collector/grafana/datasources/*
