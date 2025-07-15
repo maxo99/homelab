@@ -4,16 +4,14 @@ version = "0.0.0"
 description = "Project for managing homelab stack"
 readme = "README.md"
 requires-python = ">=3.11"
-dependencies = [
-    "ipykernel>=6.24.0",
-]
+dependencies = ["ipykernel>=6.24.0"]
 
 
 [tool.semantic_release]
 version_toml = ["pyproject.toml:project.version"]
 version_variables = ["version"]
 branch = "main"
-tag_format = "v{version}"
+tag_format = "{version}"
 allow_zero_version = true
 major_on_zero = false
 upload_to_pypi = false
