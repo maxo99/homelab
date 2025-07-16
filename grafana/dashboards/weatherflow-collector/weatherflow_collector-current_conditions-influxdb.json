@@ -3,10 +3,7 @@
     "list": [
       {
         "builtIn": 1,
-        "datasource": {
-          "type": "datasource",
-          "uid": "grafana"
-        },
+        "datasource": "-- Grafana --",
         "enable": true,
         "hide": true,
         "iconColor": "rgba(0, 211, 255, 1)",
@@ -17,44 +14,38 @@
   },
   "description": "",
   "editable": true,
-  "fiscalYearStartMonth": 0,
-  "gnetId": 14376,
+  "gnetId": 13857,
   "graphTooltip": 0,
-  "id": 857,
+  "id": 307,
+  "iteration": 1625250844903,
   "links": [
     {
       "asDropdown": true,
       "icon": "external link",
       "tags": [
-        "weatherflow-collector",
-        "luxardo_labs"
+        "weatherflow-collector"
       ],
-      "title": "WeatherFlow Collector - Dashboards",
+      "title": "WeatherFlow Collector Dashboards",
       "type": "dashboards"
     }
   ],
-  "liveNow": false,
   "panels": [
     {
-      "collapsed": false,
+      "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
         "y": 0
       },
-      "id": 167,
+      "id": 132,
       "panels": [],
       "repeat": "station_name",
-      "repeatDirection": "h",
       "title": "$station_name",
       "type": "row"
     },
     {
-      "datasource": {
-        "type": "influxdb",
-        "uid": "${data_source}"
-      },
+      "datasource": "InfluxDB - weatherflow",
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -477,19 +468,20 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 4,
+        "h": 3,
         "w": 5,
         "x": 0,
         "y": 1
       },
       "hideTimeOverride": true,
       "id": 40,
+      "interval": null,
+      "maxDataPoints": null,
       "options": {
         "colorMode": "background",
         "graphMode": "none",
         "justifyMode": "center",
         "orientation": "auto",
-        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "lastNotNull"
@@ -497,19 +489,13 @@
           "fields": "",
           "values": false
         },
-        "showPercentChange": false,
         "text": {},
-        "textMode": "auto",
-        "wideLayout": true
+        "textMode": "auto"
       },
-      "pluginVersion": "11.0.0",
+      "pluginVersion": "8.0.4",
       "targets": [
         {
           "alias": "Current",
-          "datasource": {
-            "type": "influxdb",
-            "uid": "${data_source}"
-          },
           "groupBy": [
             {
               "params": [
@@ -545,34 +531,28 @@
           ],
           "tags": [
             {
-              "key": "station_name::tag",
+              "key": "collector_type",
+              "operator": "=",
+              "value": "remote-rest"
+            },
+            {
+              "condition": "AND",
+              "key": "station_name",
               "operator": "=~",
               "value": "/^$station_name$/"
-            },
-            {
-              "condition": "AND",
-              "key": "collector_type::tag",
-              "operator": "=",
-              "value": "primary"
-            },
-            {
-              "condition": "AND",
-              "key": "device_name::tag",
-              "operator": "=~",
-              "value": "/^$device_name$/"
             }
           ],
-          "tz": "$station_time_zone"
+          "tz": "$tz"
         }
       ],
+      "timeFrom": null,
+      "timeShift": null,
       "title": "Current Observed",
+      "transformations": [],
       "type": "stat"
     },
     {
-      "datasource": {
-        "type": "influxdb",
-        "uid": "${data_source}"
-      },
+      "datasource": "InfluxDB - weatherflow",
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -995,19 +975,20 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 4,
+        "h": 3,
         "w": 5,
         "x": 5,
         "y": 1
       },
       "hideTimeOverride": true,
       "id": 68,
+      "interval": null,
+      "maxDataPoints": null,
       "options": {
         "colorMode": "background",
         "graphMode": "none",
         "justifyMode": "center",
         "orientation": "auto",
-        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "lastNotNull"
@@ -1015,19 +996,13 @@
           "fields": "",
           "values": false
         },
-        "showPercentChange": false,
         "text": {},
-        "textMode": "auto",
-        "wideLayout": true
+        "textMode": "auto"
       },
-      "pluginVersion": "11.0.0",
+      "pluginVersion": "8.0.4",
       "targets": [
         {
           "alias": "Feels Like",
-          "datasource": {
-            "type": "influxdb",
-            "uid": "${data_source}"
-          },
           "groupBy": [
             {
               "params": [
@@ -1071,26 +1046,20 @@
               "condition": "AND",
               "key": "collector_type",
               "operator": "=",
-              "value": "primary"
-            },
-            {
-              "condition": "AND",
-              "key": "device_name::tag",
-              "operator": "=~",
-              "value": "/^$device_name$/"
+              "value": "remote-rest"
             }
           ],
-          "tz": "$station_time_zone"
+          "tz": "$tz"
         }
       ],
+      "timeFrom": null,
+      "timeShift": null,
       "title": "Feels Like",
+      "transformations": [],
       "type": "stat"
     },
     {
-      "datasource": {
-        "type": "influxdb",
-        "uid": "${data_source}"
-      },
+      "datasource": "InfluxDB - weatherflow",
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -1513,19 +1482,20 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 4,
+        "h": 3,
         "w": 5,
         "x": 10,
         "y": 1
       },
       "hideTimeOverride": true,
       "id": 85,
+      "interval": null,
+      "maxDataPoints": null,
       "options": {
         "colorMode": "background",
         "graphMode": "none",
         "justifyMode": "center",
         "orientation": "auto",
-        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "lastNotNull"
@@ -1533,19 +1503,13 @@
           "fields": "",
           "values": false
         },
-        "showPercentChange": false,
         "text": {},
-        "textMode": "auto",
-        "wideLayout": true
+        "textMode": "auto"
       },
-      "pluginVersion": "11.0.0",
+      "pluginVersion": "8.0.4",
       "targets": [
         {
           "alias": "Forecast High",
-          "datasource": {
-            "type": "influxdb",
-            "uid": "${data_source}"
-          },
           "groupBy": [
             {
               "params": [
@@ -1583,28 +1547,28 @@
           ],
           "tags": [
             {
-              "key": "station_name::tag",
+              "key": "station_name",
               "operator": "=~",
               "value": "/^$station_name$/"
             },
             {
               "condition": "AND",
-              "key": "collector_type::tag",
+              "key": "collector_type",
               "operator": "=",
-              "value": "collector_forecast"
+              "value": "remote-forecast"
             }
           ],
-          "tz": "$station_time_zone"
+          "tz": "$tz"
         }
       ],
+      "timeFrom": null,
+      "timeShift": null,
       "title": "Forecast High",
+      "transformations": [],
       "type": "stat"
     },
     {
-      "datasource": {
-        "type": "influxdb",
-        "uid": "${data_source}"
-      },
+      "datasource": "InfluxDB - weatherflow",
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -2027,19 +1991,20 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 4,
+        "h": 3,
         "w": 5,
         "x": 15,
         "y": 1
       },
       "hideTimeOverride": true,
       "id": 148,
+      "interval": null,
+      "maxDataPoints": null,
       "options": {
         "colorMode": "background",
         "graphMode": "none",
         "justifyMode": "center",
         "orientation": "auto",
-        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "lastNotNull"
@@ -2047,19 +2012,13 @@
           "fields": "",
           "values": false
         },
-        "showPercentChange": false,
         "text": {},
-        "textMode": "auto",
-        "wideLayout": true
+        "textMode": "auto"
       },
-      "pluginVersion": "11.0.0",
+      "pluginVersion": "8.0.4",
       "targets": [
         {
           "alias": "Forecast High",
-          "datasource": {
-            "type": "influxdb",
-            "uid": "${data_source}"
-          },
           "groupBy": [
             {
               "params": [
@@ -2105,20 +2064,20 @@
               "condition": "AND",
               "key": "collector_type",
               "operator": "=",
-              "value": "collector_forecast"
+              "value": "remote-forecast"
             }
           ],
-          "tz": "$station_time_zone"
+          "tz": "$tz"
         }
       ],
+      "timeFrom": null,
+      "timeShift": null,
       "title": "Forecast Low",
+      "transformations": [],
       "type": "stat"
     },
     {
-      "datasource": {
-        "type": "influxdb",
-        "uid": "${data_source}"
-      },
+      "datasource": "InfluxDB - weatherflow",
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -2648,18 +2607,19 @@
         ]
       },
       "gridPos": {
-        "h": 4,
+        "h": 3,
         "w": 4,
         "x": 20,
         "y": 1
       },
       "id": 124,
+      "interval": null,
+      "maxDataPoints": null,
       "options": {
         "colorMode": "background",
         "graphMode": "none",
         "justifyMode": "center",
         "orientation": "auto",
-        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "lastNotNull"
@@ -2667,19 +2627,13 @@
           "fields": "",
           "values": false
         },
-        "showPercentChange": false,
         "text": {},
-        "textMode": "auto",
-        "wideLayout": true
+        "textMode": "auto"
       },
-      "pluginVersion": "11.0.0",
+      "pluginVersion": "8.0.4",
       "targets": [
         {
           "alias": "Chance",
-          "datasource": {
-            "type": "influxdb",
-            "uid": "${data_source}"
-          },
           "groupBy": [
             {
               "params": [
@@ -2718,20 +2672,20 @@
               "condition": "AND",
               "key": "collector_type",
               "operator": "=",
-              "value": "collector_forecast"
+              "value": "remote-forecast"
             }
           ],
-          "tz": "$station_time_zone"
+          "tz": "$tz"
         }
       ],
+      "timeFrom": null,
+      "timeShift": null,
       "title": "Chance",
+      "transformations": [],
       "type": "stat"
     },
     {
-      "datasource": {
-        "type": "influxdb",
-        "uid": "${data_source}"
-      },
+      "datasource": "InfluxDB - weatherflow",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -2848,18 +2802,19 @@
         ]
       },
       "gridPos": {
-        "h": 4,
+        "h": 3,
         "w": 5,
         "x": 0,
-        "y": 5
+        "y": 4
       },
       "id": 126,
+      "interval": null,
+      "maxDataPoints": null,
       "options": {
         "colorMode": "background",
         "graphMode": "none",
         "justifyMode": "center",
         "orientation": "auto",
-        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "lastNotNull"
@@ -2867,20 +2822,15 @@
           "fields": "",
           "values": false
         },
-        "showPercentChange": false,
         "text": {},
-        "textMode": "auto",
-        "wideLayout": true
+        "textMode": "auto"
       },
-      "pluginVersion": "11.0.0",
+      "pluginVersion": "8.0.4",
+      "repeat": null,
       "repeatDirection": "v",
       "targets": [
         {
           "alias": "Humidity",
-          "datasource": {
-            "type": "influxdb",
-            "uid": "${data_source}"
-          },
           "groupBy": [
             {
               "params": [
@@ -2919,26 +2869,20 @@
               "condition": "AND",
               "key": "collector_type",
               "operator": "=",
-              "value": "primary"
-            },
-            {
-              "condition": "AND",
-              "key": "device_name::tag",
-              "operator": "=~",
-              "value": "/^$device_name$/"
+              "value": "remote-rest"
             }
           ],
-          "tz": "$station_time_zone"
+          "tz": "$tz"
         }
       ],
+      "timeFrom": null,
+      "timeShift": null,
       "title": "Humidity",
+      "transformations": [],
       "type": "stat"
     },
     {
-      "datasource": {
-        "type": "influxdb",
-        "uid": "${data_source}"
-      },
+      "datasource": "InfluxDB - weatherflow",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -3005,18 +2949,18 @@
         ]
       },
       "gridPos": {
-        "h": 4,
+        "h": 3,
         "w": 5,
         "x": 5,
-        "y": 5
+        "y": 4
       },
       "id": 71,
+      "interval": null,
       "options": {
         "colorMode": "background",
         "graphMode": "none",
         "justifyMode": "center",
         "orientation": "auto",
-        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "lastNotNull"
@@ -3024,19 +2968,13 @@
           "fields": "",
           "values": false
         },
-        "showPercentChange": false,
         "text": {},
-        "textMode": "auto",
-        "wideLayout": true
+        "textMode": "auto"
       },
-      "pluginVersion": "11.0.0",
+      "pluginVersion": "8.0.4",
       "targets": [
         {
           "alias": "Sea Level Pressure",
-          "datasource": {
-            "type": "influxdb",
-            "uid": "${data_source}"
-          },
           "groupBy": [
             {
               "params": [
@@ -3054,7 +2992,7 @@
             [
               {
                 "params": [
-                  "calculated_sea_level_pressure"
+                  "sea_level_pressure"
                 ],
                 "type": "field"
               },
@@ -3080,26 +3018,18 @@
               "condition": "AND",
               "key": "collector_type",
               "operator": "=",
-              "value": "primary"
-            },
-            {
-              "condition": "AND",
-              "key": "device_name::tag",
-              "operator": "=~",
-              "value": "/^$device_name$/"
+              "value": "remote-rest"
             }
           ],
-          "tz": "$station_time_zone"
+          "tz": "$tz"
         }
       ],
+      "timeFrom": null,
       "title": "Sea Level Pressure",
       "type": "stat"
     },
     {
-      "datasource": {
-        "type": "influxdb",
-        "uid": "${data_source}"
-      },
+      "datasource": "InfluxDB - weatherflow",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -3180,18 +3110,19 @@
         ]
       },
       "gridPos": {
-        "h": 4,
+        "h": 3,
         "w": 5,
         "x": 10,
-        "y": 5
+        "y": 4
       },
       "id": 128,
+      "interval": null,
+      "maxDataPoints": null,
       "options": {
         "colorMode": "background",
         "graphMode": "none",
         "justifyMode": "center",
         "orientation": "auto",
-        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "lastNotNull"
@@ -3199,20 +3130,15 @@
           "fields": "",
           "values": false
         },
-        "showPercentChange": false,
         "text": {},
-        "textMode": "auto",
-        "wideLayout": true
+        "textMode": "auto"
       },
-      "pluginVersion": "11.0.0",
+      "pluginVersion": "8.0.4",
+      "repeat": null,
       "repeatDirection": "v",
       "targets": [
         {
           "alias": "UV",
-          "datasource": {
-            "type": "influxdb",
-            "uid": "${data_source}"
-          },
           "groupBy": [
             {
               "params": [
@@ -3222,7 +3148,7 @@
             }
           ],
           "hide": false,
-          "measurement": "weatherflow_obs",
+          "measurement": "weatherflow_forecast_hourly",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "I",
@@ -3249,22 +3175,28 @@
             },
             {
               "condition": "AND",
-              "key": "device_name::tag",
-              "operator": "=~",
-              "value": "/^$device_name$/"
+              "key": "collector_type",
+              "operator": "=",
+              "value": "remote-forecast"
+            },
+            {
+              "condition": "AND",
+              "key": "forecast_hourly_days_out",
+              "operator": "=",
+              "value": "0"
             }
           ],
-          "tz": "$station_time_zone"
+          "tz": "$tz"
         }
       ],
+      "timeFrom": null,
+      "timeShift": null,
       "title": "UV",
+      "transformations": [],
       "type": "stat"
     },
     {
-      "datasource": {
-        "type": "influxdb",
-        "uid": "${data_source}"
-      },
+      "datasource": "InfluxDB - weatherflow",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -3349,18 +3281,19 @@
         ]
       },
       "gridPos": {
-        "h": 4,
+        "h": 3,
         "w": 5,
         "x": 15,
-        "y": 5
+        "y": 4
       },
       "id": 130,
+      "interval": null,
+      "maxDataPoints": null,
       "options": {
         "colorMode": "background",
         "graphMode": "none",
         "justifyMode": "center",
         "orientation": "auto",
-        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "lastNotNull"
@@ -3368,20 +3301,15 @@
           "fields": "",
           "values": false
         },
-        "showPercentChange": false,
         "text": {},
-        "textMode": "auto",
-        "wideLayout": true
+        "textMode": "auto"
       },
-      "pluginVersion": "11.0.0",
+      "pluginVersion": "8.0.4",
+      "repeat": null,
       "repeatDirection": "v",
       "targets": [
         {
           "alias": "Wind",
-          "datasource": {
-            "type": "influxdb",
-            "uid": "${data_source}"
-          },
           "groupBy": [
             {
               "params": [
@@ -3420,32 +3348,27 @@
             {
               "key": "collector_type",
               "operator": "=",
-              "value": "primary"
+              "value": "remote-socket"
             },
             {
               "condition": "AND",
               "key": "station_name",
               "operator": "=~",
               "value": "/^$station_name$/"
-            },
-            {
-              "condition": "AND",
-              "key": "device_name::tag",
-              "operator": "=~",
-              "value": "/^$device_name$/"
             }
           ],
-          "tz": "$station_time_zone"
+          "tz": "$tz"
         }
       ],
+      "timeFrom": null,
+      "timeShift": null,
       "title": "Wind",
+      "transformations": [],
       "type": "stat"
     },
     {
-      "datasource": {
-        "type": "influxdb",
-        "uid": "${data_source}"
-      },
+      "cacheTimeout": null,
+      "datasource": "InfluxDB - weatherflow",
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -3567,20 +3490,21 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 4,
+        "h": 3,
         "w": 4,
         "x": 20,
-        "y": 5
+        "y": 4
       },
       "hideTimeOverride": true,
       "id": 76,
+      "interval": null,
+      "links": [],
       "maxDataPoints": 1,
       "options": {
         "colorMode": "background",
         "graphMode": "none",
         "justifyMode": "auto",
         "orientation": "horizontal",
-        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "lastNotNull"
@@ -3588,19 +3512,13 @@
           "fields": "",
           "values": false
         },
-        "showPercentChange": false,
         "text": {},
-        "textMode": "auto",
-        "wideLayout": true
+        "textMode": "auto"
       },
-      "pluginVersion": "11.0.0",
+      "pluginVersion": "8.0.4",
       "targets": [
         {
           "alias": "Wind Direction",
-          "datasource": {
-            "type": "influxdb",
-            "uid": "${data_source}"
-          },
           "groupBy": [
             {
               "params": [
@@ -3632,22 +3550,15 @@
             {
               "key": "collector_type",
               "operator": "=",
-              "value": "primary"
+              "value": "remote-socket"
             },
             {
               "condition": "AND",
               "key": "station_name",
               "operator": "=~",
               "value": "/^$station_name$/"
-            },
-            {
-              "condition": "AND",
-              "key": "device_name::tag",
-              "operator": "=~",
-              "value": "/^$device_name$/"
             }
-          ],
-          "tz": "$station_time_zone"
+          ]
         }
       ],
       "timeFrom": "60s",
@@ -3657,10 +3568,7 @@
       "type": "stat"
     },
     {
-      "datasource": {
-        "type": "influxdb",
-        "uid": "${data_source}"
-      },
+      "datasource": "InfluxDB - weatherflow",
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -3669,11 +3577,8 @@
           },
           "custom": {
             "align": "center",
-            "cellOptions": {
-              "type": "auto"
-            },
-            "filterable": false,
-            "inspect": false
+            "displayMode": "auto",
+            "filterable": false
           },
           "mappings": [],
           "thresholds": {
@@ -4162,37 +4067,23 @@
                 ]
               },
               {
-                "id": "custom.cellOptions",
-                "value": {
-                  "type": "image"
-                }
-              },
-              {
-                "id": "custom.width",
-                "value": 50
+                "id": "custom.displayMode",
+                "value": "image"
               }
             ]
           }
         ]
       },
       "gridPos": {
-        "h": 4,
+        "h": 3,
         "w": 4,
         "x": 0,
-        "y": 9
+        "y": 7
       },
       "id": 87,
+      "interval": null,
       "maxDataPoints": 1,
       "options": {
-        "cellHeight": "sm",
-        "footer": {
-          "countRows": false,
-          "fields": "",
-          "reducer": [
-            "sum"
-          ],
-          "show": false
-        },
         "frameIndex": 1,
         "showHeader": true,
         "sortBy": [
@@ -4202,14 +4093,10 @@
           }
         ]
       },
-      "pluginVersion": "11.0.0",
+      "pluginVersion": "8.0.4",
       "targets": [
         {
           "alias": "Sky",
-          "datasource": {
-            "type": "influxdb",
-            "uid": "${data_source}"
-          },
           "groupBy": [
             {
               "params": [
@@ -4218,7 +4105,6 @@
               "type": "time"
             }
           ],
-          "limit": "1",
           "measurement": "weatherflow_forecast_current",
           "orderByTime": "ASC",
           "policy": "default",
@@ -4245,14 +4131,10 @@
               "value": "/^$station_name$/"
             }
           ],
-          "tz": "$station_time_zone"
+          "tz": "$tz"
         },
         {
           "alias": "Conditions",
-          "datasource": {
-            "type": "influxdb",
-            "uid": "${data_source}"
-          },
           "groupBy": [
             {
               "params": [
@@ -4262,7 +4144,6 @@
             }
           ],
           "hide": false,
-          "limit": "1",
           "measurement": "weatherflow_forecast_current",
           "orderByTime": "ASC",
           "policy": "default",
@@ -4289,9 +4170,11 @@
               "value": "/^$station_name$/"
             }
           ],
-          "tz": "$station_time_zone"
+          "tz": "$tz"
         }
       ],
+      "timeFrom": null,
+      "timeShift": null,
       "title": "Sky Conditions",
       "transformations": [
         {
@@ -4311,7 +4194,7 @@
           }
         },
         {
-          "id": "joinByField",
+          "id": "seriesToColumns",
           "options": {}
         },
         {
@@ -4320,7 +4203,6 @@
             "excludeByName": {
               "Time": true
             },
-            "includeByName": {},
             "indexByName": {},
             "renameByName": {}
           }
@@ -4329,10 +4211,7 @@
       "type": "table"
     },
     {
-      "datasource": {
-        "type": "influxdb",
-        "uid": "${data_source}"
-      },
+      "datasource": "InfluxDB - weatherflow",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -4340,11 +4219,8 @@
           },
           "custom": {
             "align": "center",
-            "cellOptions": {
-              "type": "auto"
-            },
-            "filterable": false,
-            "inspect": false
+            "displayMode": "auto",
+            "filterable": false
           },
           "mappings": [],
           "thresholds": {
@@ -4770,11 +4646,8 @@
                 "value": "fahrenheit"
               },
               {
-                "id": "custom.cellOptions",
-                "value": {
-                  "mode": "gradient",
-                  "type": "color-background"
-                }
+                "id": "custom.displayMode",
+                "value": "color-background"
               },
               {
                 "id": "decimals",
@@ -4793,11 +4666,8 @@
                 "value": "fahrenheit"
               },
               {
-                "id": "custom.cellOptions",
-                "value": {
-                  "mode": "gradient",
-                  "type": "color-background"
-                }
+                "id": "custom.displayMode",
+                "value": "color-background"
               },
               {
                 "id": "decimals",
@@ -4816,11 +4686,8 @@
                 "value": "fahrenheit"
               },
               {
-                "id": "custom.cellOptions",
-                "value": {
-                  "mode": "gradient",
-                  "type": "color-background"
-                }
+                "id": "custom.displayMode",
+                "value": "color-background"
               },
               {
                 "id": "decimals",
@@ -4839,11 +4706,8 @@
                 "value": "fahrenheit"
               },
               {
-                "id": "custom.cellOptions",
-                "value": {
-                  "mode": "gradient",
-                  "type": "color-background"
-                }
+                "id": "custom.displayMode",
+                "value": "color-background"
               },
               {
                 "id": "decimals",
@@ -4902,11 +4766,8 @@
                 }
               },
               {
-                "id": "custom.cellOptions",
-                "value": {
-                  "mode": "gradient",
-                  "type": "color-background"
-                }
+                "id": "custom.displayMode",
+                "value": "color-background"
               }
             ]
           },
@@ -4945,11 +4806,8 @@
                 "value": "fahrenheit"
               },
               {
-                "id": "custom.cellOptions",
-                "value": {
-                  "mode": "gradient",
-                  "type": "color-background"
-                }
+                "id": "custom.displayMode",
+                "value": "color-background"
               },
               {
                 "id": "decimals",
@@ -4960,35 +4818,23 @@
         ]
       },
       "gridPos": {
-        "h": 4,
+        "h": 3,
         "w": 20,
         "x": 4,
-        "y": 9
+        "y": 7
       },
       "id": 92,
+      "interval": null,
       "maxDataPoints": 1,
       "options": {
-        "cellHeight": "sm",
-        "footer": {
-          "countRows": false,
-          "fields": "",
-          "reducer": [
-            "sum"
-          ],
-          "show": false
-        },
         "frameIndex": 0,
         "showHeader": true,
         "sortBy": []
       },
-      "pluginVersion": "11.0.0",
+      "pluginVersion": "8.0.4",
       "targets": [
         {
           "alias": "Heat Index",
-          "datasource": {
-            "type": "influxdb",
-            "uid": "${data_source}"
-          },
           "groupBy": [
             {
               "params": [
@@ -5004,7 +4850,6 @@
             }
           ],
           "hide": false,
-          "limit": "1",
           "measurement": "weatherflow_obs",
           "orderByTime": "ASC",
           "policy": "default",
@@ -5020,7 +4865,7 @@
               },
               {
                 "params": [],
-                "type": "last"
+                "type": "mean"
               },
               {
                 "params": [
@@ -5034,29 +4879,18 @@
             {
               "key": "collector_type",
               "operator": "=",
-              "value": "primary"
+              "value": "remote-rest"
             },
             {
               "condition": "AND",
               "key": "station_name",
               "operator": "=~",
               "value": "/^$station_name$/"
-            },
-            {
-              "condition": "AND",
-              "key": "device_name::tag",
-              "operator": "=~",
-              "value": "/^$device_name$/"
             }
-          ],
-          "tz": "$station_time_zone"
+          ]
         },
         {
           "alias": "Wind Chill",
-          "datasource": {
-            "type": "influxdb",
-            "uid": "${data_source}"
-          },
           "groupBy": [
             {
               "params": [
@@ -5072,7 +4906,6 @@
             }
           ],
           "hide": false,
-          "limit": "1",
           "measurement": "weatherflow_obs",
           "orderByTime": "ASC",
           "policy": "default",
@@ -5090,7 +4923,7 @@
               },
               {
                 "params": [],
-                "type": "last"
+                "type": "mean"
               },
               {
                 "params": [
@@ -5104,29 +4937,18 @@
             {
               "key": "collector_type",
               "operator": "=",
-              "value": "primary"
+              "value": "remote-rest"
             },
             {
               "condition": "AND",
               "key": "station_name",
               "operator": "=~",
               "value": "/^$station_name$/"
-            },
-            {
-              "condition": "AND",
-              "key": "device_name::tag",
-              "operator": "=~",
-              "value": "/^$device_name$/"
             }
-          ],
-          "tz": "$station_time_zone"
+          ]
         },
         {
-          "alias": "Wet Bulb",
-          "datasource": {
-            "type": "influxdb",
-            "uid": "${data_source}"
-          },
+          "alias": "Dry Bulb",
           "groupBy": [
             {
               "params": [
@@ -5142,7 +4964,45 @@
             }
           ],
           "hide": false,
-          "limit": "1",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT mean(\"delta_t\") + mean(\"wet_bulb_temperature\") * 9/5 + 32 FROM \"weatherflow_obs\" WHERE (\"collector_type\" = 'remote-rest' AND \"station_name\" =~ /^$station_name$/) AND $timeFilter GROUP BY time($__interval) fill(null)",
+          "rawQuery": true,
+          "refId": "E",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "Wet Bulb",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
           "measurement": "weatherflow_obs",
           "orderByTime": "ASC",
           "policy": "default",
@@ -5174,28 +5034,68 @@
             {
               "key": "collector_type",
               "operator": "=",
-              "value": "primary"
+              "value": "remote-rest"
             },
             {
               "condition": "AND",
               "key": "station_name",
               "operator": "=~",
               "value": "/^$station_name$/"
+            }
+          ]
+        },
+        {
+          "alias": "Delta-T",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": true,
+          "measurement": "weatherflow_obs",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "S",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "delta_t"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "collector_type",
+              "operator": "=",
+              "value": "remote-rest"
             },
             {
               "condition": "AND",
-              "key": "device_name::tag",
+              "key": "station_name",
               "operator": "=~",
-              "value": "/^$device_name$/"
+              "value": "/^$station_name$/"
             }
           ]
         },
         {
           "alias": "Dew Point",
-          "datasource": {
-            "type": "influxdb",
-            "uid": "${data_source}"
-          },
           "groupBy": [
             {
               "params": [
@@ -5211,7 +5111,6 @@
             }
           ],
           "hide": false,
-          "limit": "1",
           "measurement": "weatherflow_obs",
           "orderByTime": "ASC",
           "policy": "default",
@@ -5229,7 +5128,7 @@
               },
               {
                 "params": [],
-                "type": "last"
+                "type": "mean"
               },
               {
                 "params": [
@@ -5243,28 +5142,18 @@
             {
               "key": "collector_type",
               "operator": "=",
-              "value": "primary"
+              "value": "remote-rest"
             },
             {
               "condition": "AND",
               "key": "station_name",
               "operator": "=~",
               "value": "/^$station_name$/"
-            },
-            {
-              "condition": "AND",
-              "key": "device_name::tag",
-              "operator": "=~",
-              "value": "/^$device_name$/"
             }
           ]
         },
         {
           "alias": "Station Pressure",
-          "datasource": {
-            "type": "influxdb",
-            "uid": "${data_source}"
-          },
           "groupBy": [
             {
               "params": [
@@ -5280,7 +5169,6 @@
             }
           ],
           "hide": false,
-          "limit": "1",
           "measurement": "weatherflow_obs",
           "orderByTime": "ASC",
           "policy": "default",
@@ -5296,7 +5184,7 @@
               },
               {
                 "params": [],
-                "type": "last"
+                "type": "mean"
               },
               {
                 "params": [
@@ -5310,28 +5198,18 @@
             {
               "key": "collector_type",
               "operator": "=",
-              "value": "primary"
+              "value": "remote-rest"
             },
             {
               "condition": "AND",
               "key": "station_name",
               "operator": "=~",
               "value": "/^$station_name$/"
-            },
-            {
-              "condition": "AND",
-              "key": "device_name::tag",
-              "operator": "=~",
-              "value": "/^$device_name$/"
             }
           ]
         },
         {
           "alias": "Illuminance",
-          "datasource": {
-            "type": "influxdb",
-            "uid": "${data_source}"
-          },
           "groupBy": [
             {
               "params": [
@@ -5347,7 +5225,6 @@
             }
           ],
           "hide": false,
-          "limit": "1",
           "measurement": "weatherflow_obs",
           "orderByTime": "ASC",
           "policy": "default",
@@ -5363,7 +5240,7 @@
               },
               {
                 "params": [],
-                "type": "last"
+                "type": "mean"
               }
             ]
           ],
@@ -5371,28 +5248,18 @@
             {
               "key": "collector_type",
               "operator": "=",
-              "value": "primary"
+              "value": "remote-rest"
             },
             {
               "condition": "AND",
               "key": "station_name",
               "operator": "=~",
               "value": "/^$station_name$/"
-            },
-            {
-              "condition": "AND",
-              "key": "device_name::tag",
-              "operator": "=~",
-              "value": "/^$device_name$/"
             }
           ]
         },
         {
           "alias": "Solar Radiation",
-          "datasource": {
-            "type": "influxdb",
-            "uid": "${data_source}"
-          },
           "groupBy": [
             {
               "params": [
@@ -5408,7 +5275,6 @@
             }
           ],
           "hide": false,
-          "limit": "1",
           "measurement": "weatherflow_obs",
           "orderByTime": "ASC",
           "policy": "default",
@@ -5424,7 +5290,7 @@
               },
               {
                 "params": [],
-                "type": "last"
+                "type": "mean"
               }
             ]
           ],
@@ -5432,28 +5298,18 @@
             {
               "key": "collector_type",
               "operator": "=",
-              "value": "primary"
+              "value": "remote-rest"
             },
             {
               "condition": "AND",
               "key": "station_name",
               "operator": "=~",
               "value": "/^$station_name$/"
-            },
-            {
-              "condition": "AND",
-              "key": "device_name::tag",
-              "operator": "=~",
-              "value": "/^$device_name$/"
             }
           ]
         },
         {
           "alias": "Air Density",
-          "datasource": {
-            "type": "influxdb",
-            "uid": "${data_source}"
-          },
           "groupBy": [
             {
               "params": [
@@ -5469,7 +5325,6 @@
             }
           ],
           "hide": false,
-          "limit": "1",
           "measurement": "weatherflow_obs",
           "orderByTime": "ASC",
           "policy": "default",
@@ -5485,7 +5340,7 @@
               },
               {
                 "params": [],
-                "type": "last"
+                "type": "mean"
               }
             ]
           ],
@@ -5493,23 +5348,19 @@
             {
               "key": "collector_type",
               "operator": "=",
-              "value": "primary"
+              "value": "remote-rest"
             },
             {
               "condition": "AND",
               "key": "station_name",
               "operator": "=~",
               "value": "/^$station_name$/"
-            },
-            {
-              "condition": "AND",
-              "key": "device_name::tag",
-              "operator": "=~",
-              "value": "/^$device_name$/"
             }
           ]
         }
       ],
+      "timeFrom": null,
+      "timeShift": null,
       "title": "Temperature & Brightness",
       "transformations": [
         {
@@ -5546,10 +5397,7 @@
       "type": "table"
     },
     {
-      "datasource": {
-        "type": "influxdb",
-        "uid": "${data_source}"
-      },
+      "datasource": "InfluxDB - weatherflow",
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -5558,12 +5406,8 @@
           },
           "custom": {
             "align": "center",
-            "cellOptions": {
-              "type": "auto"
-            },
-            "filterable": false,
-            "inspect": false,
-            "minWidth": 50
+            "displayMode": "auto",
+            "filterable": false
           },
           "mappings": [],
           "thresholds": {
@@ -6016,43 +5860,31 @@
         ]
       },
       "gridPos": {
-        "h": 4,
+        "h": 3,
         "w": 4,
         "x": 0,
-        "y": 13
+        "y": 10
       },
       "hideTimeOverride": true,
       "id": 88,
+      "interval": null,
+      "maxDataPoints": null,
       "options": {
-        "cellHeight": "sm",
-        "footer": {
-          "countRows": false,
-          "fields": "",
-          "reducer": [
-            "sum"
-          ],
-          "show": false
-        },
         "showHeader": true
       },
-      "pluginVersion": "11.0.0",
+      "pluginVersion": "8.0.4",
       "targets": [
         {
           "alias": "☀️",
-          "datasource": {
-            "type": "influxdb",
-            "uid": "${data_source}"
-          },
           "groupBy": [
             {
               "params": [
-                "15m"
+                "5m"
               ],
               "type": "time"
             }
           ],
           "hide": false,
-          "limit": "1",
           "measurement": "weatherflow_forecast_current",
           "orderByTime": "ASC",
           "policy": "default",
@@ -6069,12 +5901,6 @@
               {
                 "params": [],
                 "type": "last"
-              },
-              {
-                "params": [
-                  "*1000"
-                ],
-                "type": "math"
               }
             ]
           ],
@@ -6088,27 +5914,22 @@
               "condition": "AND",
               "key": "collector_type",
               "operator": "=",
-              "value": "collector_forecast"
+              "value": "remote-forecast"
             }
           ],
-          "tz": "$station_time_zone"
+          "tz": "$tz"
         },
         {
           "alias": "🌙",
-          "datasource": {
-            "type": "influxdb",
-            "uid": "${data_source}"
-          },
           "groupBy": [
             {
               "params": [
-                "15m"
+                "5m"
               ],
               "type": "time"
             }
           ],
           "hide": false,
-          "limit": "1",
           "measurement": "weatherflow_forecast_current",
           "orderByTime": "ASC",
           "policy": "default",
@@ -6125,12 +5946,6 @@
               {
                 "params": [],
                 "type": "last"
-              },
-              {
-                "params": [
-                  "*1000"
-                ],
-                "type": "math"
               }
             ]
           ],
@@ -6144,14 +5959,45 @@
               "condition": "AND",
               "key": "collector_type",
               "operator": "=",
-              "value": "collector_forecast"
+              "value": "remote-forecast"
             }
           ],
-          "tz": "$station_time_zone"
+          "tz": "$tz"
         }
       ],
+      "timeFrom": null,
+      "timeShift": null,
       "title": "Sunrise & Sunset",
       "transformations": [
+        {
+          "id": "seriesToColumns",
+          "options": {
+            "byField": "Time"
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Icon": false,
+              "Time": true
+            },
+            "indexByName": {
+              "Conditions": 2,
+              "High": 3,
+              "Low": 4,
+              "Precip %": 5,
+              "Sky": 1,
+              "Time": 0
+            },
+            "renameByName": {
+              "Conditions": "",
+              "Icon": "Sky",
+              "Time": "Date",
+              "☀️": ""
+            }
+          }
+        },
         {
           "id": "filterByValue",
           "options": {
@@ -6167,30 +6013,12 @@
             "match": "any",
             "type": "include"
           }
-        },
-        {
-          "id": "joinByField",
-          "options": {}
-        },
-        {
-          "id": "organize",
-          "options": {
-            "excludeByName": {
-              "Time": true
-            },
-            "includeByName": {},
-            "indexByName": {},
-            "renameByName": {}
-          }
         }
       ],
       "type": "table"
     },
     {
-      "datasource": {
-        "type": "influxdb",
-        "uid": "${data_source}"
-      },
+      "datasource": "InfluxDB - weatherflow",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -6198,11 +6026,8 @@
           },
           "custom": {
             "align": "center",
-            "cellOptions": {
-              "type": "auto"
-            },
-            "filterable": false,
-            "inspect": false
+            "displayMode": "auto",
+            "filterable": false
           },
           "mappings": [],
           "thresholds": {
@@ -6276,45 +6101,38 @@
         ]
       },
       "gridPos": {
-        "h": 4,
-        "w": 5,
+        "h": 3,
+        "w": 6,
         "x": 4,
-        "y": 13
+        "y": 10
       },
       "id": 93,
+      "interval": null,
       "maxDataPoints": 1,
       "options": {
-        "cellHeight": "sm",
-        "footer": {
-          "countRows": false,
-          "fields": "",
-          "reducer": [
-            "sum"
-          ],
-          "show": false
-        },
         "frameIndex": 0,
         "showHeader": true,
         "sortBy": []
       },
-      "pluginVersion": "11.0.0",
+      "pluginVersion": "8.0.4",
       "targets": [
         {
           "alias": "Accumulation",
-          "datasource": {
-            "type": "influxdb",
-            "uid": "${data_source}"
-          },
           "groupBy": [
             {
               "params": [
                 "$__interval"
               ],
               "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
             }
           ],
           "hide": false,
-          "limit": "1",
           "measurement": "weatherflow_obs",
           "orderByTime": "ASC",
           "policy": "default",
@@ -6324,13 +6142,13 @@
             [
               {
                 "params": [
-                  "local_daily_rain_accumulation"
+                  "precip_accum_local_day"
                 ],
                 "type": "field"
               },
               {
                 "params": [],
-                "type": "last"
+                "type": "mean"
               },
               {
                 "params": [
@@ -6342,35 +6160,36 @@
           ],
           "tags": [
             {
-              "key": "collector_type::tag",
+              "key": "collector_type",
               "operator": "=",
-              "value": "primary"
+              "value": "remote-rest"
             },
             {
               "condition": "AND",
-              "key": "station_name::tag",
+              "key": "station_name",
               "operator": "=~",
               "value": "/^$station_name$/"
             }
           ],
-          "tz": "$station_time_zone"
+          "tz": "$tz"
         },
         {
           "alias": "Duration",
-          "datasource": {
-            "type": "influxdb",
-            "uid": "${data_source}"
-          },
           "groupBy": [
             {
               "params": [
                 "$__interval"
               ],
               "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
             }
           ],
           "hide": false,
-          "limit": "1",
           "measurement": "weatherflow_obs",
           "orderByTime": "ASC",
           "policy": "default",
@@ -6386,26 +6205,28 @@
               },
               {
                 "params": [],
-                "type": "last"
+                "type": "mean"
               }
             ]
           ],
           "tags": [
             {
-              "key": "collector_type::tag",
+              "key": "collector_type",
               "operator": "=",
-              "value": "primary"
+              "value": "remote-rest"
             },
             {
               "condition": "AND",
-              "key": "station_name::tag",
+              "key": "station_name",
               "operator": "=~",
               "value": "/^$station_name$/"
             }
           ],
-          "tz": "$station_time_zone"
+          "tz": "$tz"
         }
       ],
+      "timeFrom": null,
+      "timeShift": null,
       "title": "Rain (Today)",
       "transformations": [
         {
@@ -6442,10 +6263,7 @@
       "type": "table"
     },
     {
-      "datasource": {
-        "type": "influxdb",
-        "uid": "${data_source}"
-      },
+      "datasource": "InfluxDB - weatherflow",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -6453,11 +6271,8 @@
           },
           "custom": {
             "align": "center",
-            "cellOptions": {
-              "type": "auto"
-            },
-            "filterable": false,
-            "inspect": false
+            "displayMode": "auto",
+            "filterable": false
           },
           "mappings": [],
           "thresholds": {
@@ -6503,45 +6318,38 @@
         ]
       },
       "gridPos": {
-        "h": 4,
+        "h": 3,
         "w": 5,
-        "x": 9,
-        "y": 13
+        "x": 10,
+        "y": 10
       },
       "id": 166,
+      "interval": null,
       "maxDataPoints": 1,
       "options": {
-        "cellHeight": "sm",
-        "footer": {
-          "countRows": false,
-          "fields": "",
-          "reducer": [
-            "sum"
-          ],
-          "show": false
-        },
         "frameIndex": 0,
         "showHeader": true,
         "sortBy": []
       },
-      "pluginVersion": "11.0.0",
+      "pluginVersion": "8.0.4",
       "targets": [
         {
           "alias": "Accumulation",
-          "datasource": {
-            "type": "influxdb",
-            "uid": "${data_source}"
-          },
           "groupBy": [
             {
               "params": [
                 "$__interval"
               ],
               "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
             }
           ],
           "hide": false,
-          "limit": "1",
           "measurement": "weatherflow_obs",
           "orderByTime": "ASC",
           "policy": "default",
@@ -6557,7 +6365,7 @@
               },
               {
                 "params": [],
-                "type": "last"
+                "type": "mean"
               },
               {
                 "params": [
@@ -6571,39 +6379,34 @@
             {
               "key": "collector_type",
               "operator": "=",
-              "value": "primary"
+              "value": "remote-rest"
             },
             {
               "condition": "AND",
               "key": "station_name",
               "operator": "=~",
               "value": "/^$station_name$/"
-            },
-            {
-              "condition": "AND",
-              "key": "device_name::tag",
-              "operator": "=~",
-              "value": "/^$device_name$/"
             }
           ],
-          "tz": "$station_time_zone"
+          "tz": "$tz"
         },
         {
           "alias": "Duration",
-          "datasource": {
-            "type": "influxdb",
-            "uid": "${data_source}"
-          },
           "groupBy": [
             {
               "params": [
                 "$__interval"
               ],
               "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
             }
           ],
           "hide": false,
-          "limit": "1",
           "measurement": "weatherflow_obs",
           "orderByTime": "ASC",
           "policy": "default",
@@ -6619,7 +6422,7 @@
               },
               {
                 "params": [],
-                "type": "last"
+                "type": "mean"
               }
             ]
           ],
@@ -6627,24 +6430,20 @@
             {
               "key": "collector_type",
               "operator": "=",
-              "value": "primary"
+              "value": "remote-rest"
             },
             {
               "condition": "AND",
               "key": "station_name",
               "operator": "=~",
               "value": "/^$station_name$/"
-            },
-            {
-              "condition": "AND",
-              "key": "device_name::tag",
-              "operator": "=~",
-              "value": "/^$device_name$/"
             }
           ],
-          "tz": "$station_time_zone"
+          "tz": "$tz"
         }
       ],
+      "timeFrom": null,
+      "timeShift": null,
       "title": "Rain (Yesterday)",
       "transformations": [
         {
@@ -6681,10 +6480,7 @@
       "type": "table"
     },
     {
-      "datasource": {
-        "type": "influxdb",
-        "uid": "${data_source}"
-      },
+      "datasource": "InfluxDB - weatherflow",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -6692,11 +6488,8 @@
           },
           "custom": {
             "align": "center",
-            "cellOptions": {
-              "type": "auto"
-            },
-            "filterable": false,
-            "inspect": false
+            "displayMode": "auto",
+            "filterable": false
           },
           "mappings": [],
           "thresholds": {
@@ -6738,45 +6531,38 @@
         ]
       },
       "gridPos": {
-        "h": 4,
-        "w": 10,
-        "x": 14,
-        "y": 13
+        "h": 3,
+        "w": 9,
+        "x": 15,
+        "y": 10
       },
       "id": 149,
+      "interval": null,
       "maxDataPoints": 1,
       "options": {
-        "cellHeight": "sm",
-        "footer": {
-          "countRows": false,
-          "fields": "",
-          "reducer": [
-            "sum"
-          ],
-          "show": false
-        },
         "frameIndex": 0,
         "showHeader": true,
         "sortBy": []
       },
-      "pluginVersion": "11.0.0",
+      "pluginVersion": "8.0.4",
       "targets": [
         {
           "alias": "Last Detected",
-          "datasource": {
-            "type": "influxdb",
-            "uid": "${data_source}"
-          },
           "groupBy": [
             {
               "params": [
                 "$__interval"
               ],
               "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
             }
           ],
           "hide": false,
-          "limit": "1",
           "measurement": "weatherflow_obs",
           "orderByTime": "ASC",
           "policy": "default",
@@ -6786,19 +6572,13 @@
             [
               {
                 "params": [
-                  "strike_last_epoch"
+                  "lightning_strike_last_epoch"
                 ],
                 "type": "field"
               },
               {
                 "params": [],
-                "type": "last"
-              },
-              {
-                "params": [
-                  " *1000"
-                ],
-                "type": "math"
+                "type": "mean"
               }
             ]
           ],
@@ -6806,39 +6586,34 @@
             {
               "key": "collector_type",
               "operator": "=",
-              "value": "primary"
+              "value": "remote-rest"
             },
             {
               "condition": "AND",
               "key": "station_name",
               "operator": "=~",
               "value": "/^$station_name$/"
-            },
-            {
-              "condition": "AND",
-              "key": "device_name::tag",
-              "operator": "=~",
-              "value": "/^$device_name$/"
             }
           ],
-          "tz": "$station_time_zone"
+          "tz": "$tz"
         },
         {
           "alias": "Last Distance",
-          "datasource": {
-            "type": "influxdb",
-            "uid": "${data_source}"
-          },
           "groupBy": [
             {
               "params": [
                 "$__interval"
               ],
               "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
             }
           ],
           "hide": false,
-          "limit": "1",
           "measurement": "weatherflow_obs",
           "orderByTime": "ASC",
           "policy": "default",
@@ -6848,13 +6623,19 @@
             [
               {
                 "params": [
-                  "strike_last_dist"
+                  "lightning_strike_last_distance"
                 ],
                 "type": "field"
               },
               {
                 "params": [],
-                "type": "last"
+                "type": "mean"
+              },
+              {
+                "params": [
+                  "/ 1.609"
+                ],
+                "type": "math"
               }
             ]
           ],
@@ -6862,39 +6643,34 @@
             {
               "key": "collector_type",
               "operator": "=",
-              "value": "primary"
+              "value": "remote-rest"
             },
             {
               "condition": "AND",
               "key": "station_name",
               "operator": "=~",
               "value": "/^$station_name$/"
-            },
-            {
-              "condition": "AND",
-              "key": "device_name::tag",
-              "operator": "=~",
-              "value": "/^$device_name$/"
             }
           ],
-          "tz": "$station_time_zone"
+          "tz": "$tz"
         },
         {
           "alias": "Last Hour",
-          "datasource": {
-            "type": "influxdb",
-            "uid": "${data_source}"
-          },
           "groupBy": [
             {
               "params": [
                 "$__interval"
               ],
               "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
             }
           ],
           "hide": false,
-          "limit": "1",
           "measurement": "weatherflow_obs",
           "orderByTime": "ASC",
           "policy": "default",
@@ -6904,13 +6680,19 @@
             [
               {
                 "params": [
-                  "strike_count_1h"
+                  "lightning_strike_count_last_1hr"
                 ],
                 "type": "field"
               },
               {
                 "params": [],
-                "type": "last"
+                "type": "mean"
+              },
+              {
+                "params": [
+                  " / 100"
+                ],
+                "type": "math"
               }
             ]
           ],
@@ -6918,39 +6700,34 @@
             {
               "key": "collector_type",
               "operator": "=",
-              "value": "primary"
+              "value": "remote-rest"
             },
             {
               "condition": "AND",
               "key": "station_name",
               "operator": "=~",
               "value": "/^$station_name$/"
-            },
-            {
-              "condition": "AND",
-              "key": "device_name::tag",
-              "operator": "=~",
-              "value": "/^$device_name$/"
             }
           ],
-          "tz": "$station_time_zone"
+          "tz": "$tz"
         },
         {
           "alias": "Last 3 hours",
-          "datasource": {
-            "type": "influxdb",
-            "uid": "${data_source}"
-          },
           "groupBy": [
             {
               "params": [
                 "$__interval"
               ],
               "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
             }
           ],
           "hide": false,
-          "limit": "1",
           "measurement": "weatherflow_obs",
           "orderByTime": "ASC",
           "policy": "default",
@@ -6960,13 +6737,13 @@
             [
               {
                 "params": [
-                  "strike_count_3h"
+                  "lightning_strike_count_last_3hr"
                 ],
                 "type": "field"
               },
               {
                 "params": [],
-                "type": "last"
+                "type": "mean"
               }
             ]
           ],
@@ -6974,24 +6751,20 @@
             {
               "key": "collector_type",
               "operator": "=",
-              "value": "primary"
+              "value": "remote-rest"
             },
             {
               "condition": "AND",
               "key": "station_name",
               "operator": "=~",
               "value": "/^$station_name$/"
-            },
-            {
-              "condition": "AND",
-              "key": "device_name::tag",
-              "operator": "=~",
-              "value": "/^$device_name$/"
             }
           ],
-          "tz": "$station_time_zone"
+          "tz": "$tz"
         }
       ],
+      "timeFrom": null,
+      "timeShift": null,
       "title": "Lightning",
       "transformations": [
         {
@@ -7028,50 +6801,26 @@
       "type": "table"
     }
   ],
-  "refresh": "5m",
-  "schemaVersion": 39,
+  "refresh": "1m",
+  "schemaVersion": 30,
+  "style": "dark",
   "tags": [
-    "influxdb",
-    "luxardo_labs",
-    "weatherflow-collector"
+    "weatherflow-collector",
+    "influxdb"
   ],
   "templating": {
     "list": [
       {
+        "allValue": null,
         "current": {
           "selected": false,
-          "text": "InfluxDB - influxdb02 - Tylephony - weatherflow",
-          "value": "P5FDC8A59B90BFD5D"
+          "text": "All",
+          "value": "$__all"
         },
-        "hide": 0,
-        "includeAll": false,
-        "label": "Data Source",
-        "multi": false,
-        "name": "data_source",
-        "options": [],
-        "query": "influxdb",
-        "queryValue": "",
-        "refresh": 1,
-        "regex": "",
-        "skipUrlSync": false,
-        "type": "datasource"
-      },
-      {
-        "allValue": "",
-        "current": {
-          "selected": true,
-          "text": [
-            "All"
-          ],
-          "value": [
-            "$__all"
-          ]
-        },
-        "datasource": {
-          "type": "influxdb",
-          "uid": "${data_source}"
-        },
+        "datasource": "InfluxDB - weatherflow",
         "definition": "SHOW TAG VALUES WITH KEY = \"station_name\"",
+        "description": null,
+        "error": null,
         "hide": 0,
         "includeAll": true,
         "label": "Station Name",
@@ -7089,78 +6838,23 @@
         "useTags": false
       },
       {
-        "current": {
-          "selected": true,
-          "text": [
-            "All"
-          ],
-          "value": [
-            "$__all"
-          ]
-        },
-        "datasource": {
-          "type": "influxdb",
-          "uid": "${data_source}"
-        },
-        "definition": "SHOW TAG VALUES WITH KEY = \"device_name\" WHERE \"station_name\" =~ /^$station_name$/",
-        "hide": 0,
-        "includeAll": true,
-        "label": "Device",
-        "multi": true,
-        "name": "device_name",
-        "options": [],
-        "query": "SHOW TAG VALUES WITH KEY = \"device_name\" WHERE \"station_name\" =~ /^$station_name$/",
-        "refresh": 1,
-        "regex": "",
-        "skipUrlSync": false,
-        "sort": 5,
-        "type": "query"
-      },
-      {
+        "allValue": null,
         "current": {
           "selected": false,
           "text": "America/Chicago",
           "value": "America/Chicago"
         },
-        "datasource": {
-          "type": "influxdb",
-          "uid": "${data_source}"
-        },
-        "definition": "SHOW TAG VALUES WITH KEY = \"station_time_zone\" WHERE \"station_name\" =~ /^$station_name$/",
+        "datasource": "InfluxDB - weatherflow",
+        "definition": "SHOW TAG VALUES WITH KEY = \"timezone\"",
+        "description": null,
+        "error": null,
         "hide": 0,
         "includeAll": false,
-        "label": "Station Time Zone",
+        "label": "Time Zone",
         "multi": false,
-        "name": "station_time_zone",
+        "name": "tz",
         "options": [],
-        "query": "SHOW TAG VALUES WITH KEY = \"station_time_zone\" WHERE \"station_name\" =~ /^$station_name$/",
-        "refresh": 1,
-        "regex": "",
-        "skipUrlSync": false,
-        "sort": 5,
-        "tagValuesQuery": "",
-        "tagsQuery": "",
-        "type": "query",
-        "useTags": false
-      },
-      {
-        "current": {
-          "selected": false,
-          "text": "primary",
-          "value": "primary"
-        },
-        "datasource": {
-          "type": "influxdb",
-          "uid": "${data_source}"
-        },
-        "definition": "SHOW TAG VALUES WITH KEY = \"collector_type\"",
-        "hide": 0,
-        "includeAll": false,
-        "label": "Collector Type",
-        "multi": false,
-        "name": "collector_type",
-        "options": [],
-        "query": "SHOW TAG VALUES WITH KEY = \"collector_type\"",
+        "query": "SHOW TAG VALUES WITH KEY = \"timezone\"",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
@@ -7173,10 +6867,9 @@
     ]
   },
   "time": {
-    "from": "now-13m",
+    "from": "now-2m",
     "to": "now+1h"
   },
-  "timeRangeUpdatedDuringEditOrView": false,
   "timepicker": {
     "refresh_intervals": [
       "5s",
@@ -7193,7 +6886,6 @@
   },
   "timezone": "browser",
   "title": "Current Conditions",
-  "uid": "maxo99_weatherflow_current_conditions",
-  "version": 7,
-  "weekStart": ""
+  "uid": "maxo99_weatherflow_11",
+  "version": 53
 }

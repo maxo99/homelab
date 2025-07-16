@@ -3,7 +3,10 @@
     "list": [
       {
         "builtIn": 1,
-        "datasource": "-- Grafana --",
+        "datasource": {
+          "type": "datasource",
+          "uid": "grafana"
+        },
         "enable": true,
         "hide": true,
         "iconColor": "rgba(0, 211, 255, 1)",
@@ -12,12 +15,10 @@
       }
     ]
   },
-  "description": "",
   "editable": true,
-  "gnetId": 13857,
+  "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 334,
-  "iteration": 1625250929823,
+  "id": 15,
   "links": [
     {
       "asDropdown": true,
@@ -31,7 +32,7 @@
   ],
   "panels": [
     {
-      "datasource": null,
+      "collapsed": false,
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -45,7 +46,10 @@
       "type": "row"
     },
     {
-      "datasource": "InfluxDB - weatherflow",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P4D01B3EBBFF4EED9"
+      },
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -53,9 +57,14 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisGridShow": true,
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 40,
             "gradientMode": "opacity",
@@ -65,6 +74,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "smooth",
             "lineStyle": {
               "fill": "solid"
@@ -74,7 +84,7 @@
             "scaleDistribution": {
               "type": "linear"
             },
-            "showPoints": "never",
+            "showPoints": "always",
             "spanNulls": true,
             "stacking": {
               "group": "A",
@@ -89,8 +99,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               }
             ]
           },
@@ -135,25 +144,30 @@
         "x": 0,
         "y": 1
       },
-      "hideTimeOverride": true,
       "id": 39,
       "interval": "$interval",
-      "maxDataPoints": null,
       "options": {
         "graph": {},
         "legend": {
           "calcs": [],
-          "displayMode": "hidden",
-          "placement": "bottom"
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
         },
         "tooltip": {
-          "mode": "multi"
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
         }
       },
-      "pluginVersion": "7.4.0",
+      "pluginVersion": "12.0.2",
       "targets": [
         {
           "alias": "High",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P4D01B3EBBFF4EED9"
+          },
           "groupBy": [
             {
               "params": [
@@ -190,20 +204,24 @@
           "tags": [
             {
               "key": "station_name",
-              "operator": "=~",
-              "value": "/^$station_name$/"
+              "operator": "=",
+              "value": "Crystal Lake Rd"
             },
             {
               "condition": "AND",
               "key": "collector_type",
-              "operator": "=~",
-              "value": "/^$collector_type$/"
+              "operator": "=",
+              "value": "collector_rest"
             }
           ],
           "tz": "$tz"
         },
         {
           "alias": "Low",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P4D01B3EBBFF4EED9"
+          },
           "groupBy": [
             {
               "params": [
@@ -247,21 +265,21 @@
             {
               "condition": "AND",
               "key": "collector_type",
-              "operator": "=~",
-              "value": "/^$collector_type$/"
+              "operator": "=",
+              "value": "collector_rest"
             }
           ],
           "tz": "$tz"
         }
       ],
-      "timeFrom": null,
-      "timeShift": null,
       "title": "Air Temperature",
-      "transformations": [],
       "type": "timeseries"
     },
     {
-      "datasource": "InfluxDB - weatherflow",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P4D01B3EBBFF4EED9"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -269,8 +287,11 @@
           },
           "custom": {
             "align": "center",
-            "displayMode": "auto",
-            "filterable": false
+            "cellOptions": {
+              "type": "auto"
+            },
+            "filterable": false,
+            "inspect": false
           },
           "decimals": 0,
           "mappings": [],
@@ -278,8 +299,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "rgba(0, 0, 0, 0)",
-                "value": null
+                "color": "rgba(0, 0, 0, 0)"
               },
               {
                 "color": "#1A007B",
@@ -697,8 +717,11 @@
             },
             "properties": [
               {
-                "id": "custom.displayMode",
-                "value": "color-background"
+                "id": "custom.cellOptions",
+                "value": {
+                  "mode": "gradient",
+                  "type": "color-background"
+                }
               }
             ]
           },
@@ -737,8 +760,7 @@
                 "value": "time:ddd, MMM Do, 'YY"
               },
               {
-                "id": "custom.align",
-                "value": null
+                "id": "custom.align"
               }
             ]
           }
@@ -750,11 +772,18 @@
         "x": 16,
         "y": 1
       },
-      "hideTimeOverride": true,
       "id": 37,
       "interval": "1d",
-      "maxDataPoints": null,
       "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
         "frameIndex": 9,
         "showHeader": true,
         "sortBy": [
@@ -764,10 +793,14 @@
           }
         ]
       },
-      "pluginVersion": "8.0.4",
+      "pluginVersion": "12.0.2",
       "targets": [
         {
           "alias": "High",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P4D01B3EBBFF4EED9"
+          },
           "groupBy": [
             {
               "params": [
@@ -805,7 +838,7 @@
             {
               "key": "collector_type",
               "operator": "=~",
-              "value": "/^$collector_type$/"
+              "value": "primary"
             },
             {
               "condition": "AND",
@@ -818,6 +851,10 @@
         },
         {
           "alias": "Low",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P4D01B3EBBFF4EED9"
+          },
           "groupBy": [
             {
               "params": [
@@ -856,7 +893,7 @@
             {
               "key": "collector_type",
               "operator": "=~",
-              "value": "/^$collector_type$/"
+              "value": "primary"
             },
             {
               "condition": "AND",
@@ -868,8 +905,6 @@
           "tz": "$tz"
         }
       ],
-      "timeFrom": null,
-      "timeShift": null,
       "title": "Temperature",
       "transformations": [
         {
@@ -906,24 +941,28 @@
       "type": "table"
     },
     {
-      "datasource": "InfluxDB - weatherflow",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P4D01B3EBBFF4EED9"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
             "mode": "thresholds"
           },
           "custom": {
-            "align": null,
-            "displayMode": "auto",
-            "filterable": false
+            "cellOptions": {
+              "type": "auto"
+            },
+            "filterable": false,
+            "inspect": false
           },
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -956,8 +995,11 @@
             },
             "properties": [
               {
-                "id": "custom.displayMode",
-                "value": "gradient-gauge"
+                "id": "custom.cellOptions",
+                "value": {
+                  "mode": "gradient",
+                  "type": "gauge"
+                }
               },
               {
                 "id": "color",
@@ -985,6 +1027,15 @@
       },
       "id": 54,
       "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
         "showHeader": true,
         "sortBy": [
           {
@@ -993,9 +1044,13 @@
           }
         ]
       },
-      "pluginVersion": "8.0.4",
+      "pluginVersion": "12.0.2",
       "targets": [
         {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P4D01B3EBBFF4EED9"
+          },
           "groupBy": [
             {
               "params": [
@@ -1039,7 +1094,7 @@
             {
               "key": "collector_type",
               "operator": "=~",
-              "value": "/^$collector_type$/"
+              "value": "primary"
             },
             {
               "condition": "AND",
@@ -1086,16 +1141,23 @@
       "type": "table"
     },
     {
-      "datasource": "InfluxDB - weatherflow",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P4D01B3EBBFF4EED9"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 40,
             "gradientMode": "opacity",
@@ -1105,6 +1167,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "smooth",
             "lineWidth": 2,
             "pointSize": 5,
@@ -1126,8 +1189,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               }
             ]
           },
@@ -1178,17 +1240,24 @@
         "graph": {},
         "legend": {
           "calcs": [],
-          "displayMode": "hidden",
-          "placement": "bottom"
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
         },
         "tooltip": {
-          "mode": "multi"
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
         }
       },
-      "pluginVersion": "7.4.0",
+      "pluginVersion": "12.0.2",
       "targets": [
         {
           "alias": "High",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P4D01B3EBBFF4EED9"
+          },
           "groupBy": [
             {
               "params": [
@@ -1226,13 +1295,17 @@
               "condition": "AND",
               "key": "collector_type",
               "operator": "=~",
-              "value": "/^$collector_type$/"
+              "value": "primary"
             }
           ],
           "tz": "$tz"
         },
         {
           "alias": "Low",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P4D01B3EBBFF4EED9"
+          },
           "groupBy": [
             {
               "params": [
@@ -1271,28 +1344,33 @@
               "condition": "AND",
               "key": "collector_type",
               "operator": "=~",
-              "value": "/^$collector_type$/"
+              "value": "primary"
             }
           ],
           "tz": "$tz"
         }
       ],
-      "timeFrom": null,
       "title": "Humidity",
-      "transformations": [],
       "type": "timeseries"
     },
     {
-      "datasource": "InfluxDB - weatherflow",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P4D01B3EBBFF4EED9"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 40,
             "gradientMode": "opacity",
@@ -1302,6 +1380,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "smooth",
             "lineWidth": 2,
             "pointSize": 5,
@@ -1324,8 +1403,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               }
             ]
           },
@@ -1376,17 +1454,24 @@
         "graph": {},
         "legend": {
           "calcs": [],
-          "displayMode": "hidden",
-          "placement": "bottom"
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
         },
         "tooltip": {
-          "mode": "multi"
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
         }
       },
-      "pluginVersion": "7.4.0",
+      "pluginVersion": "12.0.2",
       "targets": [
         {
           "alias": "High",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P4D01B3EBBFF4EED9"
+          },
           "groupBy": [
             {
               "params": [
@@ -1430,13 +1515,17 @@
               "condition": "AND",
               "key": "collector_type",
               "operator": "=~",
-              "value": "/^$collector_type$/"
+              "value": "primary"
             }
           ],
           "tz": "$tz"
         },
         {
           "alias": "Low",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P4D01B3EBBFF4EED9"
+          },
           "groupBy": [
             {
               "params": [
@@ -1481,18 +1570,20 @@
               "condition": "AND",
               "key": "collector_type",
               "operator": "=~",
-              "value": "/^$collector_type$/"
+              "value": "primary"
             }
           ],
           "tz": "$tz"
         }
       ],
-      "timeFrom": null,
       "title": "Station Pressure",
       "type": "timeseries"
     },
     {
-      "datasource": "InfluxDB - weatherflow",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P4D01B3EBBFF4EED9"
+      },
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -1501,9 +1592,13 @@
             "mode": "fixed"
           },
           "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 30,
             "gradientMode": "opacity",
@@ -1513,6 +1608,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "smooth",
             "lineWidth": 2,
             "pointSize": 5,
@@ -1534,8 +1630,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               }
             ]
           },
@@ -1614,16 +1709,23 @@
         "legend": {
           "calcs": [],
           "displayMode": "list",
-          "placement": "bottom"
+          "placement": "bottom",
+          "showLegend": true
         },
         "tooltip": {
-          "mode": "multi"
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
         }
       },
-      "pluginVersion": "7.4.0",
+      "pluginVersion": "12.0.2",
       "targets": [
         {
           "alias": "Solar Radiation",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P4D01B3EBBFF4EED9"
+          },
           "groupBy": [
             {
               "params": [
@@ -1661,13 +1763,17 @@
               "condition": "AND",
               "key": "collector_type",
               "operator": "=~",
-              "value": "/^$collector_type$/"
+              "value": "primary"
             }
           ],
           "tz": "$tz"
         },
         {
           "alias": "Illuminance",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P4D01B3EBBFF4EED9"
+          },
           "groupBy": [
             {
               "params": [
@@ -1706,13 +1812,17 @@
               "condition": "AND",
               "key": "collector_type",
               "operator": "=~",
-              "value": "/^$collector_type$/"
+              "value": "primary"
             }
           ],
           "tz": "$tz"
         },
         {
           "alias": "UV",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P4D01B3EBBFF4EED9"
+          },
           "groupBy": [
             {
               "params": [
@@ -1751,27 +1861,33 @@
               "condition": "AND",
               "key": "collector_type",
               "operator": "=~",
-              "value": "/^$collector_type$/"
+              "value": "primary"
             }
           ],
           "tz": "$tz"
         }
       ],
-      "timeFrom": null,
       "title": "Solar Radiation / Illuminance / UV",
       "type": "timeseries"
     },
     {
-      "datasource": "InfluxDB - weatherflow",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P4D01B3EBBFF4EED9"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 40,
             "gradientMode": "opacity",
@@ -1781,6 +1897,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "smooth",
             "lineWidth": 2,
             "pointSize": 5,
@@ -1802,8 +1919,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               }
             ]
           },
@@ -1870,16 +1986,23 @@
         "legend": {
           "calcs": [],
           "displayMode": "list",
-          "placement": "bottom"
+          "placement": "bottom",
+          "showLegend": true
         },
         "tooltip": {
-          "mode": "multi"
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
         }
       },
-      "pluginVersion": "7.4.0",
+      "pluginVersion": "12.0.2",
       "targets": [
         {
           "alias": "Gust",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P4D01B3EBBFF4EED9"
+          },
           "groupBy": [
             {
               "params": [
@@ -1923,13 +2046,17 @@
               "condition": "AND",
               "key": "collector_type",
               "operator": "=~",
-              "value": "/^$collector_type$/"
+              "value": "primary"
             }
           ],
           "tz": "$tz"
         },
         {
           "alias": "Average",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P4D01B3EBBFF4EED9"
+          },
           "groupBy": [
             {
               "params": [
@@ -1974,13 +2101,17 @@
               "condition": "AND",
               "key": "collector_type",
               "operator": "=~",
-              "value": "/^$collector_type$/"
+              "value": "primary"
             }
           ],
           "tz": "$tz"
         },
         {
           "alias": "Lull",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P4D01B3EBBFF4EED9"
+          },
           "groupBy": [
             {
               "params": [
@@ -2025,20 +2156,19 @@
               "condition": "AND",
               "key": "collector_type",
               "operator": "=~",
-              "value": "/^$collector_type$/"
+              "value": "primary"
             }
           ],
           "tz": "$tz"
         }
       ],
-      "timeFrom": null,
       "title": "Wind",
       "type": "timeseries"
     }
   ],
+  "preload": false,
   "refresh": "",
-  "schemaVersion": 30,
-  "style": "dark",
+  "schemaVersion": 41,
   "tags": [
     "weatherflow-collector",
     "influxdb"
@@ -2046,17 +2176,12 @@
   "templating": {
     "list": [
       {
-        "allValue": null,
         "current": {
-          "selected": false,
           "text": "All",
           "value": "$__all"
         },
         "datasource": "InfluxDB - weatherflow",
         "definition": "SHOW TAG VALUES WITH KEY = \"station_name\"",
-        "description": null,
-        "error": null,
-        "hide": 0,
         "includeAll": true,
         "label": "Station Name",
         "multi": true,
@@ -2065,53 +2190,33 @@
         "query": "SHOW TAG VALUES WITH KEY = \"station_name\"",
         "refresh": 1,
         "regex": "",
-        "skipUrlSync": false,
         "sort": 5,
-        "tagValuesQuery": "",
-        "tagsQuery": "",
-        "type": "query",
-        "useTags": false
+        "type": "query"
       },
       {
-        "allValue": null,
         "current": {
-          "selected": false,
           "text": "America/Chicago",
           "value": "America/Chicago"
         },
         "datasource": "InfluxDB - weatherflow",
         "definition": "SHOW TAG VALUES WITH KEY = \"timezone\"",
-        "description": null,
-        "error": null,
-        "hide": 0,
         "includeAll": false,
         "label": "Time Zone",
-        "multi": false,
         "name": "tz",
         "options": [],
         "query": "SHOW TAG VALUES WITH KEY = \"timezone\"",
         "refresh": 1,
         "regex": "",
-        "skipUrlSync": false,
         "sort": 5,
-        "tagValuesQuery": "",
-        "tagsQuery": "",
-        "type": "query",
-        "useTags": false
+        "type": "query"
       },
       {
-        "allValue": null,
         "current": {
-          "selected": false,
           "text": "12h",
           "value": "12h"
         },
-        "description": null,
-        "error": null,
-        "hide": 0,
         "includeAll": false,
         "label": "Interval",
-        "multi": false,
         "name": "interval",
         "options": [
           {
@@ -2191,23 +2296,15 @@
           }
         ],
         "query": "7d,2d,1d,12h,6h,4h,2h,1h,30m,15m,10m,5m,2m,1m,30s",
-        "queryValue": "",
-        "skipUrlSync": false,
         "type": "custom"
       },
       {
-        "allValue": null,
         "current": {
-          "selected": false,
           "text": "local-udp",
           "value": "local-udp"
         },
-        "description": null,
-        "error": null,
         "hide": 2,
         "includeAll": false,
-        "label": null,
-        "multi": false,
         "name": "collector_type",
         "options": [
           {
@@ -2217,7 +2314,6 @@
           }
         ],
         "query": "local-udp",
-        "skipUrlSync": false,
         "type": "custom"
       }
     ]
@@ -2226,22 +2322,9 @@
     "from": "now-30d",
     "to": "now"
   },
-  "timepicker": {
-    "refresh_intervals": [
-      "5s",
-      "10s",
-      "30s",
-      "1m",
-      "5m",
-      "15m",
-      "30m",
-      "1h",
-      "2h",
-      "1d"
-    ]
-  },
+  "timepicker": {},
   "timezone": "browser",
   "title": "Historical (local-udp)",
-  "uid": "maxo99_weatherflow_15",
-  "version": 21
+  "uid": "maxo99labs_weatherflow_15",
+  "version": 1
 }

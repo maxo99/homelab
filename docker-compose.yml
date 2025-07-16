@@ -1,21 +1,33 @@
 
 services:
-  maxo99-grafana:
-    container_name: maxo99-grafana
+  grafana:
+    container_name: grafana
+    image: 'grafana/grafana:latest'
     environment:
-      TZ: ${TZ}
-    image: maxo99/grafana:latest
+      GF_SERVER_DEFAULT_TIMEZONE: ${TZ}
+      GF_SECURITY_ADMIN_USER: admin
+      GF_SECURITY_ADMIN_PASSWORD: admin
     ports:
     - protocol: tcp
       published: 3000
       target: 3000
-    restart: always
+    restart: unless-stopped
+    healthcheck:
+      test: "curl -f http://grafana:3000/api/health"
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
     volumes:
-    - maxo99-grafana-data:/var/lib/grafana
+      - grafana_data:/var/lib/grafana
+      - ./docker_data/grafana/provisioning:/etc/grafana/provisioning
+      # - ./docker_data/grafana_data/datasources:/etc/grafana/provisioning/datasources
+      # - ./docker_data/grafana_data/dashboards:/etc/grafana/provisioning/dashboards
   maxo99-influxdb:
     container_name: maxo99-influxdb
     environment:
-      TZ: ${TZ}
+      # TZ: ${TZ}
+      # INFLUXDB_TZ: ${TZ}
       INFLUXDB_ADMIN_USER: admin
       INFLUXDB_ADMIN_PASSWORD: ${INFLUXDB_ADMIN_PASSWORD}
       INFLUXDB_DATA_ENGINE: tsm1
@@ -34,12 +46,19 @@ services:
       published: 8086
       target: 8086
     restart: always
+    healthcheck:
+      test: "curl -f http://maxo99-influxdb:8086/health"
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
     volumes:
-    - maxo99-influxdb-data:/var/lib/influxdb:rw
+    - influxdb_data:/var/lib/influxdb 
+    # - ./influxdb-data:/var/lib/influxdb:rw
   maxo99-weatherflow-collector:
     container_name: maxo99-weatherflow-collector
     environment:
-      TZ: ${TZ}
+      USER_TIMEZONE: ${TZ}
       WEATHERFLOW_COLLECTOR_HOST_HOSTNAME: maxo99-weatherflow-collector
       WEATHERFLOW_COLLECTOR_LOGGER_FILE_ENABLED: "true"
       WEATHERFLOW_COLLECTOR_DEBUG: "true"
@@ -62,6 +81,7 @@ services:
       WEATHERFLOW_COLLECTOR_INFLUXDB_BUCKET: weatherflow
       WEATHERFLOW_COLLECTOR_INFLUXDB_TOKEN: ${INFLUXDB_ADMIN_PASSWORD}
       WEATHERFLOW_COLLECTOR_EXPORT_COLLECTOR_STALE_SEGMENT_DAYS: 1
+      WEATHERFLOW_COLLECTOR_COLLECTOR_TYPE: primary
     restart: always
     depends_on:
       - "maxo99-influxdb"
@@ -71,5 +91,5 @@ services:
       published: 50222
       target: 50222
 volumes:
-  maxo99-grafana-data:   
-  maxo99-influxdb-data: 
+  influxdb_data:
+  grafana_data:

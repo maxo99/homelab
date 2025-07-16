@@ -28,7 +28,7 @@
       "title": "WeatherFlow Collector Web Site",
       "tooltip": "Visit WeatherFlow Collector Web Site",
       "type": "link",
-      "url": "https://labs.maxo99.com/weatherflow-collector/"
+      "url": "https://labs.lux4rd0.com/weatherflow-collector/"
     },
     {
       "asDropdown": true,
@@ -84,7 +84,7 @@
       },
       "id": 12,
       "options": {
-        "content": "<center><img src=\"https://labs.maxo99.com/wp-content/uploads/2021/05/weatherflow_collector_header.png\"></center>",
+        "content": "<center><img src=\"https://labs.lux4rd0.com/wp-content/uploads/2021/05/weatherflow_collector_header.png\"></center>",
         "mode": "html"
       },
       "pluginVersion": "8.0.4",
@@ -4976,6 +4976,6 @@
   "timepicker": {},
   "timezone": "",
   "title": "Overview",
-  "uid": "maxo99labs_weatherflow_17",
+  "uid": "maxo99_weatherflow_17",
   "version": 56
 }

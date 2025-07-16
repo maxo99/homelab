@@ -74,7 +74,7 @@
             "scaleDistribution": {
               "type": "linear"
             },
-            "showPoints": "never",
+            "showpoints": "always",
             "spanNulls": true,
             "stacking": {
               "group": "A",
@@ -189,15 +189,9 @@
           ],
           "tags": [
             {
-              "key": "station_name",
-              "operator": "=~",
-              "value": "/^$station_name$/"
-            },
-            {
-              "condition": "AND",
               "key": "collector_type",
-              "operator": "=~",
-              "value": "/^$collector_type$/"
+              "operator": "=",
+              "value": "primary"
             }
           ],
           "tz": "$tz"
@@ -240,15 +234,9 @@
           ],
           "tags": [
             {
-              "key": "station_name",
-              "operator": "=~",
-              "value": "/^$station_name$/"
-            },
-            {
-              "condition": "AND",
               "key": "collector_type",
-              "operator": "=~",
-              "value": "/^$collector_type$/"
+              "operator": "=",
+              "value": "primary"
             }
           ],
           "tz": "$tz"
@@ -804,8 +792,8 @@
           "tags": [
             {
               "key": "collector_type",
-              "operator": "=~",
-              "value": "/^$collector_type$/"
+              "operator": "=",
+              "value": "primary"
             },
             {
               "condition": "AND",
@@ -855,8 +843,8 @@
           "tags": [
             {
               "key": "collector_type",
-              "operator": "=~",
-              "value": "/^$collector_type$/"
+              "operator": "=",
+              "value": "primary"
             },
             {
               "condition": "AND",
@@ -1038,8 +1026,8 @@
           "tags": [
             {
               "key": "collector_type",
-              "operator": "=~",
-              "value": "/^$collector_type$/"
+              "operator": "=",
+              "value": "primary"
             },
             {
               "condition": "AND",
@@ -1048,7 +1036,7 @@
               "value": "/^$station_name$/"
             }
           ],
-          "tz": "America/Chicago"
+          "tz": "America/New_York"
         }
       ],
       "title": "Precipitation",
@@ -1111,7 +1099,7 @@
             "scaleDistribution": {
               "type": "linear"
             },
-            "showPoints": "never",
+            "showpoints": "always",
             "spanNulls": true,
             "stacking": {
               "group": "A",
@@ -1218,15 +1206,9 @@
           ],
           "tags": [
             {
-              "key": "station_name",
-              "operator": "=~",
-              "value": "/^$station_name$/"
-            },
-            {
-              "condition": "AND",
               "key": "collector_type",
-              "operator": "=~",
-              "value": "/^$collector_type$/"
+              "operator": "=",
+              "value": "primary"
             }
           ],
           "tz": "$tz"
@@ -1263,15 +1245,9 @@
           ],
           "tags": [
             {
-              "key": "station_name",
-              "operator": "=~",
-              "value": "/^$station_name$/"
-            },
-            {
-              "condition": "AND",
               "key": "collector_type",
-              "operator": "=~",
-              "value": "/^$collector_type$/"
+              "operator": "=",
+              "value": "primary"
             }
           ],
           "tz": "$tz"
@@ -1308,7 +1284,7 @@
             "scaleDistribution": {
               "type": "linear"
             },
-            "showPoints": "never",
+            "showpoints": "always",
             "spanNulls": true,
             "stacking": {
               "group": "A",
@@ -1422,15 +1398,9 @@
           ],
           "tags": [
             {
-              "key": "station_name",
-              "operator": "=~",
-              "value": "/^$station_name$/"
-            },
-            {
-              "condition": "AND",
               "key": "collector_type",
-              "operator": "=~",
-              "value": "/^$collector_type$/"
+              "operator": "=",
+              "value": "primary"
             }
           ],
           "tz": "$tz"
@@ -1473,15 +1443,9 @@
           ],
           "tags": [
             {
-              "key": "station_name",
-              "operator": "=~",
-              "value": "/^$station_name$/"
-            },
-            {
-              "condition": "AND",
               "key": "collector_type",
-              "operator": "=~",
-              "value": "/^$collector_type$/"
+              "operator": "=",
+              "value": "primary"
             }
           ],
           "tz": "$tz"
@@ -1519,7 +1483,7 @@
             "scaleDistribution": {
               "type": "linear"
             },
-            "showPoints": "never",
+            "showpoints": "always",
             "spanNulls": true,
             "stacking": {
               "group": "A",
@@ -1653,15 +1617,9 @@
           ],
           "tags": [
             {
-              "key": "station_name",
-              "operator": "=~",
-              "value": "/^$station_name$/"
-            },
-            {
-              "condition": "AND",
               "key": "collector_type",
-              "operator": "=~",
-              "value": "/^$collector_type$/"
+              "operator": "=",
+              "value": "primary"
             }
           ],
           "tz": "$tz"
@@ -1698,15 +1656,9 @@
           ],
           "tags": [
             {
-              "key": "station_name",
-              "operator": "=~",
-              "value": "/^$station_name$/"
-            },
-            {
-              "condition": "AND",
               "key": "collector_type",
-              "operator": "=~",
-              "value": "/^$collector_type$/"
+              "operator": "=",
+              "value": "primary"
             }
           ],
           "tz": "$tz"
@@ -1743,15 +1695,9 @@
           ],
           "tags": [
             {
-              "key": "station_name",
-              "operator": "=~",
-              "value": "/^$station_name$/"
-            },
-            {
-              "condition": "AND",
               "key": "collector_type",
-              "operator": "=~",
-              "value": "/^$collector_type$/"
+              "operator": "=",
+              "value": "primary"
             }
           ],
           "tz": "$tz"
@@ -1787,7 +1733,7 @@
             "scaleDistribution": {
               "type": "linear"
             },
-            "showPoints": "never",
+            "showpoints": "always",
             "spanNulls": true,
             "stacking": {
               "group": "A",
@@ -1915,15 +1861,9 @@
           ],
           "tags": [
             {
-              "key": "station_name",
-              "operator": "=~",
-              "value": "/^$station_name$/"
-            },
-            {
-              "condition": "AND",
               "key": "collector_type",
-              "operator": "=~",
-              "value": "/^$collector_type$/"
+              "operator": "=",
+              "value": "primary"
             }
           ],
           "tz": "$tz"
@@ -1966,15 +1906,9 @@
           ],
           "tags": [
             {
-              "key": "station_name",
-              "operator": "=~",
-              "value": "/^$station_name$/"
-            },
-            {
-              "condition": "AND",
               "key": "collector_type",
-              "operator": "=~",
-              "value": "/^$collector_type$/"
+              "operator": "=",
+              "value": "primary"
             }
           ],
           "tz": "$tz"
@@ -2017,15 +1951,9 @@
           ],
           "tags": [
             {
-              "key": "station_name",
-              "operator": "=~",
-              "value": "/^$station_name$/"
-            },
-            {
-              "condition": "AND",
               "key": "collector_type",
-              "operator": "=~",
-              "value": "/^$collector_type$/"
+              "operator": "=",
+              "value": "primary"
             }
           ],
           "tz": "$tz"
@@ -2076,8 +2004,8 @@
         "allValue": null,
         "current": {
           "selected": false,
-          "text": "America/Chicago",
-          "value": "America/Chicago"
+          "text": "America/New_York",
+          "value": "America/New_York"
         },
         "datasource": "InfluxDB - weatherflow",
         "definition": "SHOW TAG VALUES WITH KEY = \"timezone\"",
@@ -2241,7 +2169,7 @@
     ]
   },
   "timezone": "browser",
-  "title": "Historical (local-udp)",
-  "uid": "maxo99_weatherflow_15",
+  "title": "maxo99v1",
+  "uid": "maxo99labs_weatherflow_16",
   "version": 21
 }
