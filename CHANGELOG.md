@@ -1,6 +1,19 @@
 # CHANGELOG
 
 
+## v0.2.0 (2025-07-16)
+
+### Build System
+
+- Moving weatherflow grafana logic
+  ([`c540931`](https://github.com/maxo99/homelab/commit/c54093134470b3aeeb37bb5e85d120f43638e962))
+
+### Features
+
+- **grafana**: Initial grafana dashboards import and provisioning for weathercollector data
+  ([`b9c8f02`](https://github.com/maxo99/homelab/commit/b9c8f02acd1e8ddc8d96d1fa69dd5bb4c12984b3))
+
+
 ## v0.1.0 (2025-07-15)
 
 ### Bug Fixes
