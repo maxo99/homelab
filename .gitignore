@@ -3,3 +3,8 @@ weatherflow-collector/grafana/dashboards/*
 weatherflow-collector/grafana/provisioning/*
 weatherflow-collector/grafana/datasources/*
 /docker_data
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+*/**.egg-info/*
