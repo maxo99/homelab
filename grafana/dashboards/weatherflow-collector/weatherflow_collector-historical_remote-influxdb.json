@@ -4080,8 +4080,8 @@
         "allValue": null,
         "current": {
           "selected": true,
-          "text": "remote-rest",
-          "value": "remote-rest"
+          "text": "primary",
+          "value": "primary"
         },
         "description": null,
         "error": null,
@@ -4093,8 +4093,8 @@
         "options": [
           {
             "selected": true,
-            "text": "remote-rest",
-            "value": "remote-rest"
+            "text": "primary",
+            "value": "primary"
           },
           {
             "selected": false,
@@ -4102,7 +4102,7 @@
             "value": "remote-socket"
           }
         ],
-        "query": "remote-rest,remote-socket",
+        "query": "primary,remote-socket",
         "queryValue": "",
         "skipUrlSync": false,
         "type": "custom"

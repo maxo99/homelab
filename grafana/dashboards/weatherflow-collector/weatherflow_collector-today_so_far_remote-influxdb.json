@@ -2570,8 +2570,8 @@
         "options": [
           {
             "selected": false,
-            "text": "remote-rest",
-            "value": "remote-rest"
+            "text": "primary",
+            "value": "primary"
           },
           {
             "selected": true,
@@ -2579,7 +2579,7 @@
             "value": "remote-socket"
           }
         ],
-        "query": "remote-rest,remote-socket",
+        "query": "primary,remote-socket",
         "queryValue": "",
         "skipUrlSync": false,
         "type": "custom"

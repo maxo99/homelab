@@ -436,7 +436,7 @@
             {
               "key": "collector_type",
               "operator": "=",
-              "value": "remote-rest"
+              "value": "primary"
             },
             {
               "condition": "AND",
@@ -3208,8 +3208,8 @@
           },
           {
             "selected": false,
-            "text": "remote-rest",
-            "value": "remote-rest"
+            "text": "primary",
+            "value": "primary"
           },
           {
             "selected": false,
@@ -3217,7 +3217,7 @@
             "value": "remote-socket"
           }
         ],
-        "query": "local-udp,remote-forecast,remote-rest,remote-socket",
+        "query": "local-udp,remote-forecast,primary,remote-socket",
         "queryValue": "",
         "skipUrlSync": false,
         "type": "custom"

@@ -713,7 +713,7 @@
             {
               "key": "collector_type",
               "operator": "=",
-              "value": "remote-rest"
+              "value": "primary"
             },
             {
               "condition": "AND",
@@ -1735,7 +1735,7 @@
             {
               "key": "collector_type",
               "operator": "=",
-              "value": "remote-rest"
+              "value": "primary"
             },
             {
               "condition": "AND",
@@ -2757,7 +2757,7 @@
             {
               "key": "collector_type",
               "operator": "=",
-              "value": "remote-rest"
+              "value": "primary"
             },
             {
               "condition": "AND",
@@ -2901,7 +2901,7 @@
               "condition": "AND",
               "key": "collector_type",
               "operator": "=",
-              "value": "remote-rest"
+              "value": "primary"
             }
           ],
           "tz": "$tz"
@@ -4891,7 +4891,7 @@
               "condition": "AND",
               "key": "collector_type",
               "operator": "=",
-              "value": "remote-rest"
+              "value": "primary"
             }
           ],
           "tz": "$tz"
