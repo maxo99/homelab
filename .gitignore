@@ -1,9 +1,8 @@
 **/.env
-weatherflow-collector/grafana/dashboards/*
-weatherflow-collector/grafana/provisioning/*
-weatherflow-collector/grafana/datasources/*
+duckdns/
+swag/
 /docker_data
-__pycache__
+**/__pycache__
 *.pyc
 *.pyo
 *.pyd

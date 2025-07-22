@@ -13891,8 +13891,8 @@
       },
       {
         "current": {
-          "text": "Europe/Budapest",
-          "value": "Europe/Budapest"
+          "text": "America/New_York",
+          "value": "America/New_York"
         },
         "description": "Your local time zone for grouping stats",
         "label": "Local Time Zone",
@@ -13950,8 +13950,8 @@
           },
           {
             "selected": true,
-            "text": "Europe/Budapest",
-            "value": "Europe/Budapest"
+            "text": "America/New_York",
+            "value": "America/New_York"
           },
           {
             "selected": false,
@@ -14149,7 +14149,7 @@
             "value": "Pacific/Honolulu"
           }
         ],
-        "query": "Europe/London, Europe/Paris, Europe/Berlin, Europe/Madrid, Europe/Rome, Europe/Amsterdam, Europe/Brussels, Europe/Zurich, Europe/Stockholm, Europe/Warsaw, Europe/Budapest, Europe/Istanbul, Europe/Athens, Europe/Moscow, America/New_York, America/Chicago, America/Denver, America/Los_Angeles, America/Toronto, America/Vancouver, America/Mexico_City, America/Sao_Paulo, America/Buenos_Aires, America/Lima, America/Bogota, Africa/Johannesburg, Africa/Cairo, Africa/Nairobi, Africa/Lagos, Asia/Tokyo, Asia/Seoul, Asia/Shanghai, Asia/Singapore, Asia/Kolkata, Asia/Bangkok, Asia/Dubai, Asia/Hong_Kong, Asia/Kuala_Lumpur, Asia/Jakarta, Asia/Manila, Asia/Taipei, Asia/Karachi, Asia/Colombo, Asia/Ho_Chi_Minh, Australia/Sydney, Australia/Melbourne, Australia/Brisbane, Australia/Perth, Pacific/Auckland, Pacific/Honolulu",
+        "query": "Europe/London, Europe/Paris, Europe/Berlin, Europe/Madrid, Europe/Rome, Europe/Amsterdam, Europe/Brussels, Europe/Zurich, Europe/Stockholm, Europe/Warsaw, America/New_York, Europe/Istanbul, Europe/Athens, Europe/Moscow, America/New_York, America/Chicago, America/Denver, America/Los_Angeles, America/Toronto, America/Vancouver, America/Mexico_City, America/Sao_Paulo, America/Buenos_Aires, America/Lima, America/Bogota, Africa/Johannesburg, Africa/Cairo, Africa/Nairobi, Africa/Lagos, Asia/Tokyo, Asia/Seoul, Asia/Shanghai, Asia/Singapore, Asia/Kolkata, Asia/Bangkok, Asia/Dubai, Asia/Hong_Kong, Asia/Kuala_Lumpur, Asia/Jakarta, Asia/Manila, Asia/Taipei, Asia/Karachi, Asia/Colombo, Asia/Ho_Chi_Minh, Australia/Sydney, Australia/Melbourne, Australia/Brisbane, Australia/Perth, Pacific/Auckland, Pacific/Honolulu",
         "type": "custom"
       }
     ]

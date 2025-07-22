@@ -4,8 +4,36 @@ version = "0.2.0"
 description = "Project for managing homelab stack"
 readme = "README.md"
 requires-python = ">=3.11"
-dependencies = ["ipykernel>=6.24.0"]
+dependencies = [
+    "ipykernel>=6.24.0",
+    "jupyterlab>=4.0.0",
+    "colorama",
+    "pandas",
+    "matplotlib",
+    "influxdb>=5.3.2",
+]
 
+[build-system]
+requires = ["setuptools>=42"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ['utils']
+include = ['*']
+
+
+# [tool.uv.workspace]
+# members = ["utils"]
+
+
+[tool.uv.sources]
+utils = { workspace = true }
+weatherflow-collector = {  workspace = true }
+
+[tool.uv.workspace]
+members = [
+    "weatherflow-collector",
+]
 
 [tool.semantic_release]
 version_toml = ["pyproject.toml:project.version"]
@@ -37,3 +65,17 @@ patch_tags = ["fix", "perf"]
 
 [tool.semantic_release.changelog.default_templates]
 changelog_file = "CHANGELOG.md"
+
+[tool.pylint.messages_control]
+disable = [
+    "C0114",  # missing-module-docstring
+    "C0115",  # missing-class-docstring
+    "C0116",  # missing-function-docstring
+    "R0903",  # too-few-public-methods
+    "R0913",  # too-many-arguments
+    "R0914",  # too-many-locals
+    "W1203",  # logging-format-interpolation
+    "W0718",  # exception-escape
+    "W0511",  # TODOs
+    "F403",  # forbidden-import
+]
