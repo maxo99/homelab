@@ -7,10 +7,12 @@ requires-python = ">=3.11"
 dependencies = [
     "ipykernel>=6.24.0",
     "jupyterlab>=4.0.0",
+    "numpy>=1.26.0",
     "colorama",
     "pandas",
     "matplotlib",
     "influxdb>=5.3.2",
+    "influxdb_client==1.44.0",
 ]
 
 [build-system]
@@ -18,21 +20,22 @@ requires = ["setuptools>=42"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools.packages.find]
-where = ['utils']
+where = ['influxdb_utils']
 include = ['*']
 
 
 # [tool.uv.workspace]
-# members = ["utils"]
+# members = ["influxdb_utils"]
 
 
 [tool.uv.sources]
-utils = { workspace = true }
+influxdb_utils = { workspace = true }
 weatherflow-collector = {  workspace = true }
 
 [tool.uv.workspace]
 members = [
     "weatherflow-collector",
+    "influxdb_utils",
 ]
 
 [tool.semantic_release]
