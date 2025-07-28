@@ -1,9 +1,0 @@
-apiVersion: 1
-datasources: 
-  - 
-    name: InfluxDB - weatherflow
-    type: influxdb
-    orgId: 1
-    database: weatherflow
-    basicAuth: false
-    url: "http://maxo99-influxdb:8086/"
