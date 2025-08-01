@@ -1,0 +1,6 @@
+[submodule "insight-stack"]
+	path = insight-stack
+	url = https://github.com/maxo99/insight-stack.git
+[submodule "pve"]
+	path = pve
+	url = https://github.com/maxo99/pve.git
